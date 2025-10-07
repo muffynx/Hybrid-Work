@@ -1,12 +1,11 @@
-// components/PostCard.js
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Platform } from 'react-native';
-import { colors } from '../utils/api'; // ⭐️ Import colors from utils
+import { colors } from '../utils/api'; 
 
 const PostCard = React.memo(({ post, userId, userCache, onLike, onUnlike, onComment, onDeletePost, onDeleteComment }) => {
   const [comment, setComment] = useState('');
 
-  // Helper function to safely extract full name (Logic ยังคงอยู่ใน PostCard)
+ 
   const getFullName = (person) => {
     if (typeof person === 'object' && person !== null) {
       const name = `${person.firstname ?? person.name ?? ''} ${person.lastname ?? ''}`.trim();
@@ -78,7 +77,7 @@ const PostCard = React.memo(({ post, userId, userCache, onLike, onUnlike, onComm
                 <Text style={styles.commentAuthorText}>{commentAuthor}: </Text>
                 {item.content}
               </Text>
-              {(isOwnComment || isOwnPost) && ( // Allow post author to delete comments
+              {(isOwnComment || isOwnPost) && ( 
                 <TouchableOpacity
                   onPress={() => onDeleteComment(post._id, item._id)}
                   style={styles.deleteCommentButton}
@@ -145,25 +144,23 @@ const styles = StyleSheet.create({
     },
     avatarText: {
       color: '#fff',
-      // fontFamily: 'Prompt_700Bold',
       fontSize: 18,
       fontFamily: 'NotoSansThai',
     },
     postAuthor: {
-      // fontFamily: 'Prompt_600SemiBold',
       fontSize: 16,
       color: colors.textPrimary,
       fontFamily: 'NotoSansThai',
     },
     postText: {
-      // fontFamily: 'Prompt_400Regular',
+   
       fontSize: 16,
       color: colors.textPrimary,
       marginBottom: 12,
       fontFamily: 'NotoSansThai',
     },
     postMeta: {
-      // fontFamily: 'Prompt_400Regular',
+    
       fontSize: 11,
       color: colors.textSecondary,
       fontFamily: 'NotoSansThai',
@@ -191,7 +188,6 @@ const styles = StyleSheet.create({
       borderColor: colors.like,
     },
     likeText: {
-      // fontFamily: 'Prompt_500Medium',
       fontSize: 14,
       color: colors.textPrimary,
       marginLeft: 4,
@@ -204,13 +200,12 @@ const styles = StyleSheet.create({
       backgroundColor: '#fee2e2',
     },
     deleteText: {
-      // fontFamily: 'Prompt_500Medium',
+
       fontSize: 14,
       color: colors.danger,
       fontFamily: 'NotoSansThai',
     },
     deleteTextSmall: {
-      // fontFamily: 'Prompt_400Regular',
       fontSize: 12,
       color: colors.danger,
       fontFamily: 'NotoSansThai',
@@ -222,7 +217,6 @@ const styles = StyleSheet.create({
       paddingTop: 12,
     },
     commentTitle: {
-      // fontFamily: 'Prompt_600SemiBold',
       fontSize: 14,
       color: colors.textPrimary,
       marginBottom: 8,
@@ -238,11 +232,9 @@ const styles = StyleSheet.create({
       marginBottom: 6,
     },
     commentAuthorText: {
-      // fontFamily: 'Prompt_600SemiBold',
       color: colors.textPrimary,
     },
     commentText: {
-      // fontFamily: 'Prompt_400Regular',
       fontSize: 13,
       color: colors.textSecondary,
       flex: 1,
@@ -262,7 +254,6 @@ const styles = StyleSheet.create({
       padding: 8,
       borderRadius: 8,
       marginRight: 8,
-      // fontFamily: 'Prompt_400Regular',
       fontSize: 14,
       backgroundColor: '#fff',
       fontFamily: 'NotoSansThai',
@@ -279,7 +270,6 @@ const styles = StyleSheet.create({
     },
     commentSubmitText: {
       color: '#fff',
-      // fontFamily: 'Prompt_500Medium',
       fontSize: 14,
       fontFamily: 'NotoSansThai',
     },
